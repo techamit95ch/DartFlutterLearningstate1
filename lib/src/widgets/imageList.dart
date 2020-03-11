@@ -11,8 +11,28 @@ class ImageList extends StatelessWidget{
       itemCount: images.length,
       itemBuilder: (context,int index)
       {
-        return Image.network(images[index].url);
+        return buildImage(images[index]);
       });
   }
+ // Widget buildImage( ImageModel image){
+    Widget buildImage(ImageModel image) {
+    
+        return Container(
+          decoration: BoxDecoration(border: Border.all(color:Colors.amberAccent)),
+          padding: EdgeInsets.all(20.0),
+          margin: EdgeInsets.all(20.0),
+          child: Column(
+            children: <Widget>[
+              Padding(
+                child: Image.network(image.url),
+                padding: EdgeInsets.only(bottom:10.0),
+              ),
+              
+              Text(image.title)
+            ]
+          ),
+        );
+    }
+  }
   
-}
+//}
